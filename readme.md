@@ -1,6 +1,8 @@
 ## About VULOC
 VULOC is a vulnerability scanning tool for C/C++ source code. It uses a customized deep learning architecture, combined with high-level abstract features of vulnerability source code and low-level fine-grained features of assembly code, to detect vulnerable functions and accurately locate vulnerable lines.
 
+## How to replicate
+
 ### gcc编译
 
 ```shell
