@@ -151,7 +151,7 @@ def write_dataset(func_type, func_list, bad_num, bad_length, good_num, good_leng
     #     f = open('./dataset/test.txt', 'a+')
     # if 0 < num - int(total_file_num * 0.05) < int(total_file_num * 0.25):
     if int(bad_length * 0.8) > bad_num or (bad_length == bad_num and int(good_length * 0.8) > good_num):
-        f = open('./dataset/train.txt', 'a+')
+        f = open('train.txt', 'a+')
         if func_type == 'good':
             f.write('__label0__\n')
 
@@ -174,7 +174,7 @@ def write_dataset(func_type, func_list, bad_num, bad_length, good_num, good_leng
         f.close()
     # elif num < int(total_file_num * 0.05):
     else:
-        f = open('./dataset/test.txt', 'a+')
+        f = open('test.txt', 'a+')
         if func_type == 'good':
             f.write('__label0__\n')
             for line in func_list:
