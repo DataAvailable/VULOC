@@ -18,7 +18,7 @@ def process_test():
         #     for j in range(len(function_list[i])):
         #         f.write(function_list[i][j])
         #     f.write('\n')
-        if 10 < len(function_list[i]) < 100:
+        if 10 < len(function_list[i]) < 120:
             for j in range(len(function_list[i])):
                 f.write(function_list[i][j])
             f.write('\n')
