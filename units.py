@@ -86,18 +86,18 @@ def covert_data_to_tensor(training_data, test_data, train_labels, test_labels):
     training_data = np.asarray(training_data)
     test_data = np.asarray(test_data)
 
-    # 我们在训练期间需要一个数据集进行验证，选择溢出一半，稍后可以调整
-    # split_frac = 0.5
-    # split_id = int(split_frac * len(test_data))
-    # validation_data, test_data = test_data[:split_id], test_data[split_id:]
-    # val_labels, test_labels = test_labels[:split_id], test_labels[split_id:]
+    # 我们在训练期间需要一个数据集进行验证，选择测试集的一半作为验证集，稍后可以调整
+    split_frac = 0.5
+    split_id = int(split_frac * len(test_data))
+    validation_data, test_data = test_data[:split_id], test_data[split_id:]
+    val_labels, test_labels = test_labels[:split_id], test_labels[split_id:]
 
     # 为训练、验证和测试创建 tensorDatasets
     training_data = TensorDataset(torch.from_numpy(training_data), torch.from_numpy(train_labels))
-    # val_data = TensorDataset(torch.from_numpy(validation_data), torch.from_numpy(val_labels))
+    val_data = TensorDataset(torch.from_numpy(validation_data), torch.from_numpy(val_labels))
     test_data = TensorDataset(torch.from_numpy(test_data), torch.from_numpy(test_labels))
 
-    return training_data, test_data
+    return training_data, val_data, test_data
 
 
 # 生成01定位矩阵
