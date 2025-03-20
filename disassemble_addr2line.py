@@ -13,7 +13,7 @@ def disassemble_binary(basepath, vulner_line_dic):
             filepath = path.join(basepath, file)
             if path.isfile(filepath):  # 判断路径是否为文件
                 gdb.execute('file ' + filepath)
-                if path.isfile(filepath):
+                if path.isfile(filepath) and not filepath.endswith('.md'):
                     functions = gdb.execute('info functions', to_string=True)  # 列出可执行文件中的所有函数名称
                     function_list = functions.split('\n')  # 存放所有函数名称的列表
                     debug_function_list = []  # 存放可调式函数名称的列表, 0:源文件路径 1:函数1 2:函数2 3:函数3...
@@ -94,13 +94,19 @@ def read_xml():
                         # print(line)
     return line_dic  # 返回存放文件名以及相应的漏洞行数(或无漏洞)的字典
 
-
-binary_path = './BinaryFile/good'  # or './BinaryFile/bad'
-# gdb.execute("set logging redirect on")  # gdb输出在命令行不显示
-if binary_path == './BinaryFile/good':
-    gdb.execute("set logging on ./assemble/good_function_assembly.txt")  # 将输出存入文件
-else:
-    gdb.execute("set logging on ./assemble/bad_function_assembly.txt")
+binary_path_good = './BinaryFile/good'
+gdb.execute("set logging file ./assemble/good_function_assembly.txt")  # 将输出存入文件
+# 开启日志记录
+gdb.execute("set logging on")  
 gdb.execute("set pagination off")  # 取消输出分页显示
 line_dic = read_xml()
-disassemble_binary(binary_path, line_dic)
+disassemble_binary(binary_path_good, line_dic)
+gdb.execute("set logging off")  
+
+binary_path_bad = './BinaryFile/bad'
+gdb.execute("set logging file ./assemble/bad_function_assembly.txt")
+# 开启日志记录
+gdb.execute("set logging on")  
+gdb.execute("set pagination off")  # 取消输出分页显示
+line_dic = read_xml()
+disassemble_binary(binary_path_bad, line_dic)
