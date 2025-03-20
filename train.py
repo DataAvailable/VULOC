@@ -286,10 +286,9 @@ hidden_dim = 512
 n_layers = 2
 dropout = 0.2
 
-batchsize = 32
+batchsize = 8
 epoch = 100
 learning_rate = 0.001
-# weight_decay = 0.0001
 
 print('Vocabulary size: ', vocab_size)
 print('Params: batch_size = {} epochs = {} learning_rate = {} dropout = {}'.format(batchsize, epoch, learning_rate,
