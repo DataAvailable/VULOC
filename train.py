@@ -5,7 +5,7 @@ from collections import Counter
 import re
 import nltk
 import os
-# nltk.download('punkt')
+nltk.download('punkt_tab')
 import numpy as np
 import torch.nn.functional as F
 import matplotlib.pyplot as plt
