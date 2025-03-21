@@ -21,6 +21,7 @@ matplotlib = 3.5.1
 scikit-learn = 1.0.2
 gcc = 9.4.0
 gdb = 8.1.1 # no python packages
+addr2line = 2.3.0
 ```
 If you simply want to replicate the experimental results, you can skip the preprocessing steps (including compilation, disassembly, slicing, and tokenization) and directly execute the following commands for model training and vulnerability detection.
 ```shell
