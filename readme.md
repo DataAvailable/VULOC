@@ -55,7 +55,7 @@ After compilation is complete, the binary files corresponding to each sample wil
 gdb -q -x disassemble_addr2line.py
 ```
 After disassembly is completed, the disassembly files bad_function_assembly.txt and good_function_assembly.txt will be saved to the assemble directory.
-## Step 2: Slice and Label
+### Step 2: Slice and Label
 1.Slice and label the generated assembly code, then split the samples into train.txt and test.txt files in an 8:2 ratio. 
 ```shell
 python label_dataset.py
@@ -64,7 +64,7 @@ python label_dataset.py
 ```shell
 python del_long_short.py
 ```
-## Step 3: Train and Detect
+### Step 3: Train and Detect
 After completing the steps above, you can proceed to train the model. Here, we use the following default hyperparameters: dropout=0.2, batch_size=8, epochs=100, learning_rate=0.001, hidden_dim=512, and n_layers=2.
 ```shell
 python train.py
