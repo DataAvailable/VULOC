@@ -40,26 +40,6 @@ def labeling():
 
     bad_length = len(file_list)
     good_length = len(file_list_good)
-    # bad
-    # for f in range(len(file_list)):
-    #     fuction_index_bad = []
-    #     print(file_list[f])
-    #     for i in range(len(file_list[f])):
-    #         if file_list[f][i].startswith('Dump'):
-    #             fuction_index_bad.append(i)
-    #     fuction_list_bad = []
-    #     for i in range(len(fuction_index_bad)):
-    #         if i + 1 < len(fuction_index_bad):
-    #             fuction_list_bad.append(file_list[f][fuction_index_bad[i] + 1: fuction_index_bad[i + 1]])
-    #             fuction_list_bad[i].insert(0, vulner_funcname_list[f])      # 在每个函数的第一行加入源文件名
-    #     fuction_list_bad.append(file_list[f][fuction_index_bad[-1] + 1:])
-    #     fuction_list_bad[-1].insert(0, vulner_funcname_list[f])            # 在每个函数的第一行加入源文件名(最后一个函数)
-    #     for function in fuction_list_bad:
-    #         # print(function)
-    #         label_function(function, vulner_list[index], bad_num, bad_length, good_num, good_length, rand)
-    #     bad_num += 1
-    #     index += 1
-    # f1.close()
 
     for f in range(len(file_list_good)):
         # bad
@@ -101,35 +81,6 @@ def labeling():
         good_num += 1
     f1.close()
     f2.close()
-
-
-# def labeling_good():
-    # f2 = open('./assemble/good_function_assembly.txt', 'r')
-    # lines_good = f2.readlines()
-    # file_index_good = []
-    # for i in range(len(lines_good)):
-    #     if lines_good[i].startswith('----------------------------------'):
-    #         file_index_good.append(i)
-    # file_list_good = []
-    # for i in range(len(file_index_good)):
-    #     if i + 1 < len(file_index_good):
-    #         file_list_good.append(lines_good[file_index_good[i] + 1: file_index_good[i + 1] - 4])
-    # file_list_good.append(lines_good[file_index_good[-1] + 1: -2])
-    # for file in file_list_good:
-    #     fuction_index = []
-    #     print(file)
-    #     for i in range(len(file)):
-    #         if file[i].startswith('Dump'):
-    #             fuction_index.append(i)
-    #     fuction_list = []
-    #     for i in range(len(fuction_index)):
-    #         if i + 1 < len(fuction_index):
-    #             fuction_list.append(file[fuction_index[i] + 1: fuction_index[i + 1]])
-    #     fuction_list.append(file[fuction_index[-1] + 1:])
-    #     for function in fuction_list:
-    #         # print(function)
-    #         write_dataset('good', function, num)
-    #     num += 1
 
 
 def label_function(func_list, vulner_line, bad_num, bad_length, good_num, good_length, rand):
@@ -193,18 +144,6 @@ def write_dataset(func_type, func_list, bad_num, bad_length, good_num, good_leng
             f.write('\n')
         else:
             print('error!')
-    # if func_type == 'good':
-    #     f.write('__label1__\n')
-    #     for line in func_list:
-    #         f.write(line)
-    #     f.write('\n')
-    # elif func_type == 'bad':
-    #     f.write('__label0__\n')
-    #     for line in func_list:
-    #         f.write(line)
-    #     f.write('\n')
-    # else:
-    #     print('error!')
         f.close()
 
 
