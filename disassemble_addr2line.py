@@ -28,7 +28,7 @@ def disassemble_binary(basepath, vulner_line_dic):
                         # debug_function_list[0] 可执行文件所属文件名
                         filename = filename_path.split()[1].split('/')[-1].split('.')[0]
                         vulner_line = vulner_line_dic[filename]  # 得到漏洞行号
-                        if basepath == './BinaryFile/bad':
+                        if basepath.startswith('./BinaryFile/bad'):
                             print(vulner_line)
                         print(filename_path)
                         print('----------------------------------')
@@ -97,7 +97,7 @@ def read_xml():
 binary_path_good = './BinaryFile/good'
 gdb.execute("set logging file ./assemble/good_function_assembly.txt")  # 将输出存入文件
 # 开启日志记录
-gdb.execute("set logging on")  
+gdb.execute("set logging enabled on")   
 gdb.execute("set pagination off")  # 取消输出分页显示
 line_dic = read_xml()
 disassemble_binary(binary_path_good, line_dic)
@@ -106,7 +106,7 @@ gdb.execute("set logging off")
 binary_path_bad = './BinaryFile/bad'
 gdb.execute("set logging file ./assemble/bad_function_assembly.txt")
 # 开启日志记录
-gdb.execute("set logging on")  
+gdb.execute("set logging enabled on")  
 gdb.execute("set pagination off")  # 取消输出分页显示
 line_dic = read_xml()
 disassemble_binary(binary_path_bad, line_dic)
