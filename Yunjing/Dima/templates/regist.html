@@ -1,0 +1,82 @@
+<!--
+Author: W3layouts
+Author URL: http://w3layouts.com
+-->
+<!--<!DOCTYPE html>-->
+{% load static %}
+<html lang="kyl">
+
+<head>
+    <title>云镜漏扫</title>
+
+    <!-- Meta tags -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+    <!-- Google fonts -->
+    <link href="//fonts.googleapis.com/css2?family=Kumbh+Sans:wght@300;400;700&display=swap" rel="stylesheet">
+
+    <!-- CSS Stylesheet -->
+    <link rel="stylesheet" href="../static/register/css/style.css" type="text/css" media="all" />
+
+    <!-- fontawesome v5-->
+    <script src="https://kit.fontawesome.com/af562a2a63.js" crossorigin="anonymous"></script>
+    <!-- 判断两次密码是否相等 -->
+    <script>
+                        function check2pwd() {
+                                if(input1.value != input2.value) {
+                                    alert("两次输入密码不一致！")
+                                    input1.value = "";
+                                    input2.value = "";
+                                }
+                        }
+                        function registsucess(){
+                        {
+                        alert("注册成功！")}
+                        }
+                        </script>
+
+</head>
+
+<body>
+    <div class="signinform">
+        <h1> </h1>
+        <!-- container -->
+        <div class="container">
+            <!-- main content -->
+                <div class="w3_info">
+                    <h2>注 册</h2>
+                    <form action="#" method="post">
+                        <div class="input-group">
+                            <span><i class="fas fa-user" aria-hidden="true"></i></span>
+                            <input type="email" placeholder="邮箱/用户名/手机号" required="" name="name">
+                        </div>
+                        <div class="input-group">
+                            <span><i class="fas fa-key" aria-hidden="true"></i></span>
+                            <input type="Password" placeholder="密码" required="" id="input1"  name="password">
+                        </div>
+                        <div class="input-group">
+                            <span><i class="fas fa-key" aria-hidden="true"></i></span>
+                            <input type="Password" placeholder="确认密码" required="" id="input2" onblur="check2pwd()" name="password">
+                        </div>
+
+
+                        <button class="btn btn-primary btn-block" type="submit" >注 册</button>
+                    </form>
+                    <p class="continue"><span></span></p>
+                
+                    <p class="account">已经有账户? <a href="../login">登 录</a></p>
+            </div>
+            <!-- //main content -->
+        </div>
+        <!-- //container -->
+        <!-- footer -->
+        <div class="footer">
+            <p>&copy; 云镜：从根源上解决你的软件安全问题！
+        </div>
+        <!-- footer -->
+    </div>
+</body>
+
+</html>
