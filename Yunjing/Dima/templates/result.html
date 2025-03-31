@@ -1,0 +1,218 @@
+{% load static %}
+<!--<!DOCTYPE html>-->
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>云镜漏扫</title>
+  <link rel="stylesheet" href="../static/detect/css/style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.1/css/bootstrap.css">
+	<link rel="stylesheet" href="https://cdn.datatables.net/1.10.19/css/dataTables.bootstrap4.min.css">
+	<link rel="stylesheet" href="https://cdn.datatables.net/buttons/1.5.2/css/buttons.bootstrap4.min.css">
+	<link rel="stylesheet" href="https://cdn.datatables.net/responsive/2.2.3/css/responsive.bootstrap4.min.css">
+
+    <!--顶部导航栏css-->
+    <!--网站图标-->
+    <link href="../static/detect/img/favicon.ico" rel="icon">
+    <link href="../static/detect/img/apple-touch-icon.png" rel="apple-touch-icon">
+
+    <!-- Bootstrap CSS File -->
+    <link href="../static/detect/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Libraries CSS Files -->
+    <link href="../static/detect/vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet">
+    <link href="../static/detect/vendor/animate/animate.min.css" rel="stylesheet">
+    <link href="../static/detect/vendor/ionicons/css/ionicons.min.css" rel="stylesheet">
+    <link href="../static/detect/vendor/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet">
+
+    <!-- Main Stylesheet File -->
+    <link href="../static/detect/top-css/style.css" rel="stylesheet">
+    <link href="../static/detect/top-css/style-detection-process.css" rel="stylesheet">
+     <script>
+                        function Loginexists(){
+                        {
+                        alert("您已登录！")}
+                        }
+                        </script>
+</head>
+
+<body>
+
+<!-- 顶部导航栏 -->
+    <header id="header" class="header-scrolled">
+            <div class="container-fluid">
+
+                <div id="logo" class="pull-left">
+                    <!-- Uncomment below if you prefer to use text logo -->
+                    <!-- <h1><a href="index.html" class="scrollto">Tech Conference</a></h1> -->
+                    <a href="index.html"><img src="/static/index/picture/yjlogo.png" alt="Logo"></a>
+                </div>
+
+				<nav id="nav-menu-container">
+                    <ul class="nav-menu sf-js-enabled sf-arrows" style="touch-action: pan-y;">
+                          <li><button class="top-button" onclick="Loginexists()">已登录</button></li>
+                        <li><form action="/logout/" method="get" ><button type="submit" class="top-button">注销</button></form></li>
+                    </ul>
+                </nav><!-- #nav-menu-container -->
+
+				<nav id="nav-menu-container">
+                    <ul class="nav-menu sf-js-enabled sf-arrows" style="touch-action: pan-y;">
+                        <li><a href="../">首页</a></li>
+                        <li><a class="smooth" href="#about">关于云镜</a></li>
+                        <li><a class="smooth" href="#features">产品创新</a></li>
+                        <li><a class="smooth" href="#works">核心功能</a></li>
+                        <li><a class="smooth" href="#team">团队介绍</a></li>
+                        <li><a class="smooth" href="#pricing">成果支撑</a></li>
+                        <li><a class="smooth" href="#future">未来发展</a></li>
+                    </ul>
+                </nav><!-- #nav-menu-container -->
+
+            </div>
+        </header>
+<!-- 顶部导航栏结束 -->
+
+  <!-- contact -->
+  <section class="w3l-contact-5">
+    <div class="contact-top section-gap">
+      <div class="wrapper">
+        <!-- <div class="d-grid cont-main-top"> -->
+          <!-- <div class="contacts12-main"> -->
+            <h4 class="title-main-cont">检测结果</h4>
+            <div class="sub-title-cont">漏洞检测结果为每个参与检测的程序所对应的文件名、漏洞行号以及检测时间。</div>
+              <br>
+            <!--检测结果详情展示（dataTable形式）-->
+            <table id="example" class="table table-striped table-bordered dt-responsive nowrap" style="width:100%">
+              <thead>
+                  <tr>
+                      <th>序号</th>
+                      <th>文件名</th>
+                      <th>漏洞行</th>
+                      <th>检测时间</th>
+                      <th>操作</th>
+                  </tr>
+              </thead>
+              <tbody>
+              </tbody>
+          </table>
+
+            <form action="/saveresult/" method="post" class="main-input">
+
+<!--              <input type="text" placeholder="模型选择" name="model" id="model" required="">-->
+
+              <textarea id="result">{{result}}</textarea>
+             
+<!--              <textarea {{result}} name="sourcecode" id="sourcecode" required=""></textarea>-->
+                <p></p>
+                
+              
+              <!-- <div class="text-right">
+              	 
+                <button  class="btn btn-contact" ><a href="../static/result.txt" download="result.txt">保存结果</a></button>
+                  <a href="../static/result.txt" download="result.txt">点击下载</a>
+
+              </div> -->
+<!--              <div class="text-left">-->
+<!--                <button type="submit" class="btn btn-contact">返回检测</button>-->
+<!--              </div>-->
+            </form>
+<!--            <div class="text-right">-->
+            <form action="/clearFile/" method="get" >
+                <button type="submit" class="btn btn-contact">返回检测</button>
+            </form>
+<!--            </div>-->
+          <!-- </div> -->
+
+          <!-- <div class="contact">
+            <div class="cont-subs">
+              <div class="cont-add">
+                <h4>特别说明：</h4>
+                <p class="contact-text-sub">如需保存检测结果至本地，请点击保存结果！</p>
+              </div>
+            </div>
+          </div> -->
+        </div>
+      <!-- </div> -->
+
+    </div>
+     <!-- footer -->
+        <div class="footer">
+            <p>&copy; 云镜漏扫：你的代码安全测试专家！</p>
+        </div>
+<!-- footer -->
+  </section>
+  <!-- //contact -->
+<!-- js库引用 -->
+<script src="../static/detect/vendor/jquery/jquery.min.js"></script>
+<script src="../static/detect/vendor/jquery/jquery-migrate.min.js"></script>
+<script src="../static/detect/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+<script src="../static/detect/vendor/easing/easing.min.js"></script>
+<script src="../static/detect/vendor/superfish/hoverIntent.js"></script>
+<script src="../static/detect/vendor/superfish/superfish.min.js"></script>
+<script src="../static/detect/vendor/waypoints/waypoints.min.js"></script>
+<script src="../static/detect/vendor/owlcarousel/owl.carousel.min.js"></script>
+<script src="../static/detect/vendor/touchSwipe/jquery.touchSwipe.min.js"></script>
+
+<!-- Main Javascript File -->
+<script src="../static/detect/js/main.js"></script>
+
+<!--dataTable js库引用-->
+<script src="https://code.jquery.com/jquery-3.3.1.js"></script>
+<script src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js"></script>
+<script src="https://cdn.datatables.net/1.10.19/js/dataTables.bootstrap4.min.js"></script>
+<script src="https://cdn.datatables.net/buttons/1.5.2/js/dataTables.buttons.min.js"></script>
+<script src="https://cdn.datatables.net/buttons/1.5.2/js/buttons.bootstrap4.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.1.3/jszip.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.36/pdfmake.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.36/vfs_fonts.js"></script>
+<script src="https://cdn.datatables.net/buttons/1.5.2/js/buttons.html5.min.js"></script>
+<script src="https://cdn.datatables.net/buttons/1.5.2/js/buttons.print.min.js"></script>
+<script src="https://cdn.datatables.net/buttons/1.5.2/js/buttons.colVis.min.js"></script>
+<script src="https://cdn.datatables.net/responsive/2.2.3/js/dataTables.responsive.min.js"></script>
+<script src="https://cdn.datatables.net/responsive/2.2.3/js/responsive.bootstrap4.min.js"></script>
+<script>
+    $(document).ready(function() {
+      /*信息导出*/
+        var table = $('#example').DataTable( {
+          lengthChange: false,
+          buttons: [ 'copy', 'excel', 'csv', 'pdf', 'colvis' ]
+      } );
+
+      table.buttons().container().appendTo( '#example_wrapper .col-md-6:eq(0)' );
+
+      /*漏洞详情展示*/
+      var Name_Line_List = $('#result').val().split('\n'); // 获取结果列表 [文件名:漏洞行]
+      for(var i = 0; i < Name_Line_List.length; i++) {
+        // dateTable 时间戳获取
+        var date = new Date();
+        var year = date.getFullYear();
+        var mouth = date.getMonth()+1;
+        var day = date.getDate()
+        var hour = date.getHours(); 
+        var minute = date.getMinutes();
+        var second = date.getSeconds();
+
+        var fileName = Name_Line_List[i].split(':')[0];  //文件名
+        var line = Name_Line_List[i].split(':')[1];  //漏洞行
+
+        $('#example').dataTable().fnAddData([
+            i+1, //序号
+            fileName, //文件名
+            line, 
+            year + "." + mouth + "." + day + " " + hour + ":" + minute + ":" + second,
+            "x"
+            // (reader.fileSize/1024).toFixed(2) + " KB", //文件大小
+            // year + "." + mouth + "." + day + " " + hour + ":" + minute + ":" + second, //上传时间
+            ]);
+      }
+    } );
+
+    
+
+</script>
+
+
+</body>
+
+</html>
