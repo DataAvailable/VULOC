@@ -84,19 +84,20 @@ python train.py
 ```
 ## Web Deployment(Yunjing)
 If you prefer not to use VULOC in the command-line interface, you can follow the steps below to deploy the web version and perform vulnerability detection through an interactive web interface.
-
-1.Install the django package, and copy the [CodeMirror](https://codemirror.net/) project to the `Yunjing/Dima/static/CodeMirror` path.
+### Step 1: Environment settings
+Install the django package, and copy the [CodeMirror](https://codemirror.net/) project to the `Yunjing/Dima/static/CodeMirror` path.
 ```
 pip install django
 cd Yunjing/Dima/static
 mkdir CodeMirror
 ```
 
-2.Startup project
+### Step 2: Startup project
 ```
 cd Yunjing
 python manage.py runserver
 ```
 The default IP is 127.0.0.1 and the default port number is 8000 (can be modified to specify IP and port). The website page after the project is launched is [VULOC-Web(or Yunjing)](http://127.0.0.1:8000/)。
 
-3.After registering an account, log in and follow the instructions on the page to perform vulnerability detection.
+### Step 3: Usage
+After registering an account, log in and follow the instructions on the page to perform vulnerability detection.
