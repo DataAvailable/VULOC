@@ -1,0 +1,53 @@
+File ./Dima/testcases/CWE843_Type_Confusion__char_01.c:
+----------------------------------
+Dump of assembler code for function CWE843_Type_Confusion__char_01_good:
+55 : endbr64
+55 : push %rbp
+55 : mov %rsp,%rbp
+56 : mov $0x0,%eax
+56 : callq 0x1442 <goodG2B>
+57 : nop
+57 : pop %rbp
+Dump of assembler code for function main:
+70 : endbr64
+70 : push %rbp
+70 : mov %rsp,%rbp
+70 : sub $0x10,%rsp
+70 : mov %edi,-0x4(%rbp)
+70 : mov %rsi,-0x10(%rbp)
+72 : mov $0x0,%edi
+72 : callq 0x10d0 <time@plt>
+72 : mov %eax,%edi
+72 : callq 0x10c0 <srand@plt>
+74 : lea 0xb51(%rip),%rdi # 0x2029
+74 : callq 0x11c9 <printLine>
+75 : mov $0x0,%eax
+75 : callq 0x1498 <CWE843_Type_Confusion__char_01_good>
+76 : lea 0xb4d(%rip),%rdi # 0x203b
+76 : callq 0x11c9 <printLine>
+83 : mov $0x0,%eax
+84 : leaveq
+Dump of assembler code for function goodG2B:
+41 : endbr64
+41 : push %rbp
+41 : mov %rsp,%rbp
+41 : sub $0x20,%rsp
+41 : mov %fs:0x28,%rax
+41 : mov %rax,-0x8(%rbp)
+41 : xor %eax,%eax
+44 : movq $0x0,-0x10(%rbp)
+47 : movl $0x8,-0x14(%rbp)
+48 : lea -0x14(%rbp),%rax
+48 : mov %rax,-0x10(%rbp)
+51 : mov -0x10(%rbp),%rax
+51 : mov (%rax),%eax
+51 : mov %eax,%edi
+51 : callq 0x1213 <printIntLine>
+52 : nop
+52 : mov -0x8(%rbp),%rax
+52 : xor %fs:0x28,%rax
+52 : je 0x1496 <goodG2B+84>
+52 : callq 0x10a0 <__stack_chk_fail@plt>
+52 : leaveq
+
+

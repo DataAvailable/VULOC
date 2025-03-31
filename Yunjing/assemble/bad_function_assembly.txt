@@ -1,0 +1,46 @@
+32
+File ./Dima/testcases/CWE843_Type_Confusion__char_01.c:
+----------------------------------
+Dump of assembler code for function CWE843_Type_Confusion__char_01_bad:
+22 : endbr64
+22 : push %rbp
+22 : mov %rsp,%rbp
+22 : sub $0x20,%rsp
+22 : mov %fs:0x28,%rax
+22 : mov %rax,-0x8(%rbp)
+22 : xor %eax,%eax
+25 : movq $0x0,-0x10(%rbp)
+28 : movb $0x61,-0x11(%rbp)
+29 : lea -0x11(%rbp),%rax
+29 : mov %rax,-0x10(%rbp)
+32 : mov -0x10(%rbp),%rax
+32 : mov (%rax),%eax
+32 : mov %eax,%edi
+32 : callq 0x1213 <printIntLine>
+33 : nop
+33 : mov -0x8(%rbp),%rax
+33 : xor %fs:0x28,%rax
+33 : je 0x1493 <CWE843_Type_Confusion__char_01_bad+81>
+33 : callq 0x10a0 <__stack_chk_fail@plt>
+33 : leaveq
+Dump of assembler code for function main:
+70 : endbr64
+70 : push %rbp
+70 : mov %rsp,%rbp
+70 : sub $0x10,%rsp
+70 : mov %edi,-0x4(%rbp)
+70 : mov %rsi,-0x10(%rbp)
+72 : mov $0x0,%edi
+72 : callq 0x10d0 <time@plt>
+72 : mov %eax,%edi
+72 : callq 0x10c0 <srand@plt>
+79 : lea 0xb69(%rip),%rdi # 0x2029
+79 : callq 0x11c9 <printLine>
+80 : mov $0x0,%eax
+80 : callq 0x1442 <CWE843_Type_Confusion__char_01_bad>
+81 : lea 0xb64(%rip),%rdi # 0x203a
+81 : callq 0x11c9 <printLine>
+83 : mov $0x0,%eax
+84 : leaveq
+
+
