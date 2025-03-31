@@ -11,6 +11,18 @@ VULOC is a vulnerability scanning tool for C/C++ source code. It uses a customiz
 | HAN-BSVD   | 97.9%      | 97.1%      | 96.4%      | 8.5        |
 | VULOC      | 97.4%      | 97.7%      | 98.0%      | 1.0        |
 
+## File descriptions
+```
+./BinaryFile/: Object files path
+./Yunjing/: Web implementation of VULOC (based on Django)
+./assemble/: Assembly code files path
+./dataset/: The train/test dataset path
+./model/: Trained models path
+./testcases/: The original data samples
+./testcasesupport/: The header file that the original data sample compiles depends on
+manifest.xml: Records the vulnerability type and sink line number corresponding to each program in the dataset
+```
+
 ## How to replicate
 ### Requirements
 ```
@@ -73,9 +85,11 @@ python train.py
 ## Web Deployment(Yunjing)
 If you prefer not to use VULOC in the command-line interface, you can follow the steps below to deploy the web version and perform vulnerability detection through an interactive web interface.
 
-1.Install the project environment
+1.Install the django package, and copy the [CodeMirror](https://codemirror.net/) project to the `Yunjing/Dima/static/CodeMirror` path.
 ```
 pip install django
+cd Yunjing/Dima/static
+mkdir CodeMirror
 ```
 
 2.Startup project
