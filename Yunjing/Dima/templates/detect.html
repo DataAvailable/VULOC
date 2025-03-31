@@ -1,0 +1,313 @@
+{% load static %}
+<!--<!DOCTYPE html>-->
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>云镜漏扫</title>
+  <link rel="stylesheet" href="../static/detect/css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.1/css/bootstrap.css">
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.10.19/css/dataTables.bootstrap4.min.css">
+    <link rel="stylesheet" href="https://cdn.datatables.net/buttons/1.5.2/css/buttons.bootstrap4.min.css">
+    <link rel="stylesheet" href="https://cdn.datatables.net/responsive/2.2.3/css/responsive.bootstrap4.min.css">
+
+  <!--顶部导航栏css-->
+    <!--网站图标-->
+    <link href="../static/detect/img/favicon.ico" rel="icon">
+    <link href="../static/detect/img/apple-touch-icon.png" rel="apple-touch-icon">
+
+    <!-- Bootstrap CSS File -->
+    <link href="../static/detect/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Libraries CSS Files -->
+    <link href="../static/detect/vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet">
+    <link href="../static/detect/vendor/animate/animate.min.css" rel="stylesheet">
+    <link href="../static/detect/vendor/ionicons/css/ionicons.min.css" rel="stylesheet">
+    <link href="../static/detect/vendor/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet">
+
+    <!-- Main Stylesheet File -->
+    <link href="../static/detect/top-css/style.css" rel="stylesheet">
+
+<!--CodeMirror引用 代码高亮显示-->
+<link rel="stylesheet" href="../static/CodeMirror/lib/codemirror.css">
+
+<!--    <link href="../static/detect/top-css/style-detection-process.css" rel="stylesheet">-->
+    <script>
+                        function Loginexist(){
+                        {
+                        alert("您已登录！")}
+                        }
+                        </script>
+</head>
+
+<body>
+
+<!-- 顶部导航栏 -->
+
+    <header id="header" class="header-scrolled">
+            <div class="container-fluid">
+
+                <div id="logo" class="pull-left">
+                    <a href="../"><img src="/static/index/picture/yjlogo.png" alt="Logo" /></a>
+                </div>
+				<nav id="nav-menu-container">
+                    <ul class="nav-menu sf-js-enabled sf-arrows" style="touch-action: pan-y;">
+                        <li><button onclick="Loginexist()" class="top-button">已登录</button></li>
+                        <li><form action="../logout/" method="get" ><button type="submit" class="top-button">注销</button></form></li>
+
+                    </ul>
+                </nav>
+				<nav id="nav-menu-container">
+                    <ul class="nav-menu sf-js-enabled sf-arrows" style="touch-action: pan-y;">
+                        <li><a href="../">首页</a></li>
+                        <li><a class="smooth" href="#about">关于云镜</a></li>
+                        <li><a class="smooth" href="#features">产品创新</a></li>
+                        <li><a class="smooth" href="#works">核心功能</a></li>
+                        <li><a class="smooth" href="#team">团队介绍</a></li>
+                        <li><a class="smooth" href="#pricing">成果支撑</a></li>
+                        <li><a class="smooth" href="#future">未来发展</a></li>
+                        <!-- <li><a href="../about">工具介绍</a></li>
+                        <li><a href="../speaker">核心技术</a></li>
+                        <li><a href="../agenda">检测流程</a></li>
+                        <li><a href="../venue">产品优势</a></li>
+                        <li><a href="../ticket">适用语言</a></li> -->
+                    </ul>
+                </nav>
+            </div>
+    </header>
+<!-- 顶部导航栏结束 -->
+
+  <!-- 漏洞检测 -->
+  <section class="w3l-contact-5">
+    <div class="contact-top section-detect-gap">
+      <div class="wrapper">
+        <h4 class="title-main-cont">漏洞检测</h4>
+        <div class="sub-title-cont">云镜代码安全检测工具，帮助用户在软件开发过程中快速定位编码中的技术漏洞和逻辑漏洞，辅助工程师进行漏洞修补，可以有效解决网络攻击、数据泄露等安全问题，具体操作流程如下: </div>
+        <div class="sub-title-cont">1.上传待检测的程序源代码文件; 2.选择一个训练好的模型; 3.点击<bold>开始扫描</bold>按钮对代码进行漏洞检测.</div>
+        <br>
+        <!--dataTable 表-->
+        <table id="example" class="table table-striped table-bordered dt-responsive nowrap" style="width:100%">
+            <thead>
+                <tr>
+                    <th>序号</th>
+                    <th>文件名</th>
+                    <th>程序大小</th>
+                    <th>上传时间</th>
+                </tr>
+            </thead>
+            <tbody>
+            </tbody>
+        </table>
+
+        <div class="d-grid cont-main-top">
+          <!-- contact form -->
+             <!-- display data-->
+          
+            <form action="/getdata/" method="post" class="main-input">
+<!--              <input type="text" placeholder="模型选择" name="model" id="model" required=""><p></p>-->
+                 <!--上传文件-->
+                <input type="button" value="代码上传" class="btn btn-contact" id="btn" onclick="document.getElementById('upload').click();" style="font-family: inherit;text-align:left"/>
+                <input type="file" id="upload" name="upload" accept=".c, .cpp" style="display:none;" multiple/> <br/>
+                <br>
+                <select class="form-control input-lg" name="model">
+                    <option value="model1.pt" selected="">模型一(默认)</option>
+                    <option value="model2.pt">模型二</option>
+                    <option value="model3.pt">模型三</option>
+                
+			    </select><br>
+
+            <!--显示内容-->
+<!--            <div class="show"></div>-->
+              <textarea  name="filename" id="filename" class="showfilename" style="display:none"></textarea>
+              <textarea  name="filenumber" class="showfilenumber" style="display:none"></textarea>
+              <!-- realy data-->
+              <textarea  name="sourcecode" id="sourcecode" class="showrealydata" style="display:none"></textarea>
+              <div class="text-right">
+                <button type="submit" class="btn btn-detect" >开始扫描</button>
+              <p class="prompt">正在检测中，请稍等！</p>
+              </div>
+            </form>
+            <br>
+            <textarea placeholder="源代码显示区域" name="showcode" id="showcode" required="" class="show" readonly="readonly"></textarea><p></p>
+          </div>
+          <!-- //contact form -->
+          
+          <!-- contact address -->
+
+      </div>
+
+    </div>
+  </section>
+  <!-- //contact -->
+<!-- footer -->
+        <div class="footer">
+            <p>&copy; 云镜漏扫：你的代码安全测试专家！</p>
+        </div>
+<!-- footer -->
+<!-- js库引用 -->
+<script src="../static/detect/vendor/jquery/jquery.min.js"></script>
+<script src="../static/detect/vendor/jquery/jquery-migrate.min.js"></script>
+<script src="../static/detect/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+<script src="../static/detect/vendor/easing/easing.min.js"></script>
+<script src="../static/detect/vendor/superfish/hoverIntent.js"></script>
+<script src="../static/detect/vendor/superfish/superfish.min.js"></script>
+<script src="../static/detect/vendor/waypoints/waypoints.min.js"></script>
+<script src="../static/detect/vendor/owlcarousel/owl.carousel.min.js"></script>
+<script src="../static/detect/vendor/touchSwipe/jquery.touchSwipe.min.js"></script>
+<!-- Main Javascript File -->
+<script src="../static/detect/js/main.js"></script>
+
+
+<!--CodeMirror引用 代码高亮显示-->
+<script src="../static/CodeMirror/lib/codemirror.js"></script>
+<script src="../static/CodeMirror/mode/javascript/javascript.js"></script>
+
+
+
+<script>  $ (function (){
+    $ ('.btn-detect').click (function (){
+        $ ('.prompt').show().delay(99999999999).fadeOut();
+    });
+});
+</script>
+
+<!--DataTable JS 引用-->
+<script src="https://code.jquery.com/jquery-3.3.1.js"></script>
+<script src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js"></script>
+<script src="https://cdn.datatables.net/1.10.19/js/dataTables.bootstrap4.min.js"></script>
+<script src="https://cdn.datatables.net/buttons/1.5.2/js/dataTables.buttons.min.js"></script>
+<script src="https://cdn.datatables.net/buttons/1.5.2/js/buttons.bootstrap4.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.1.3/jszip.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.36/pdfmake.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.36/vfs_fonts.js"></script>
+<script src="https://cdn.datatables.net/buttons/1.5.2/js/buttons.html5.min.js"></script>
+<script src="https://cdn.datatables.net/buttons/1.5.2/js/buttons.print.min.js"></script>
+<script src="https://cdn.datatables.net/buttons/1.5.2/js/buttons.colVis.min.js"></script>
+<script src="https://cdn.datatables.net/responsive/2.2.3/js/dataTables.responsive.min.js"></script>
+<script src="https://cdn.datatables.net/responsive/2.2.3/js/responsive.bootstrap4.min.js"></script>
+
+<script>
+$(document).ready(function() {
+    /*信息导出*/
+    var table = $('#example').DataTable( {
+        lengthChange: false,
+        buttons: [ 'copy', 'excel', 'csv', 'pdf', 'colvis' ]
+    } );
+ 
+    table.buttons().container().appendTo( '#example_wrapper .col-md-6:eq(0)' );
+
+} );
+
+$('#cancel').click(function(){
+    /*表格删除行*/
+    var table = $('#example').DataTable();
+    table.row($(this).parents('tr')).remove().draw();
+
+} );
+ </script>
+
+
+<script>
+(function ($) {
+    //初始定义
+    let upload = document.querySelector('#upload')
+    let show = document.querySelector('.show')
+	let showrealydata = document.querySelector('.showrealydata')
+	
+	let showfilenumber = document.querySelector('.showfilenumber')
+    let showfilename = document.querySelector('.showfilename')
+	
+	//上传代码实现
+    upload.onchange = function (e) {
+        const file = e.target.files[0]; // 文件信息
+        if (file) {
+            const reader = new FileReader();
+            reader.fileName = file.name; // 获取文件名
+            reader.fileSize = file.size; // 获取文件大小
+            reader.readAsText(file); // 将文件读取为文本
+            reader.onload = () => { // 文件读取完成后的回调
+            
+            // dateTable 时间戳获取
+            var date = new Date();
+            var year = date.getFullYear();
+            var mouth = date.getMonth()+1;
+            var day = date.getDate()
+            var hour = date.getHours(); 
+            var minute = date.getMinutes();
+            var second = date.getSeconds();
+            
+				//批量显示
+                if (e.target.files.length > 1) {
+                    var arr = ["已上传的文件数目：" + e.target.files.length + '\n']
+					var arr_realy = []
+                    for(var i = 0; i < e.target.files.length; i++) {
+                        reader.fileName = e.target.files[i].name
+                        arr.push(reader.fileName + '\n')
+						arr_realy.push(reader.fileName)
+
+                        // dataTable 行数获取
+                        var info = $('#example').DataTable().page.info();
+                        var dataRows = info.recordsTotal+1;
+                        /*dataTable表格增加行数据*/
+                        $('#example').dataTable().fnAddData([
+                        dataRows,
+                        reader.fileName,
+                        (reader.fileSize/1024).toFixed(2) + " KB",
+                        year + "." + mouth + "." + day + " " + hour + ":" + minute + ":" + second,
+                        ]);
+
+                        }
+                    show.textContent = arr.toString().replace(/,/g, "")
+					showrealydata.textContent = arr_realy
+                    showfilenumber.textContent = e.target.files.length
+
+                }
+				//单个显示
+                else {
+					
+                    //设置CodeMirror基本样式
+                    var editor = CodeMirror.fromTextArea(document.getElementById("showcode"), {
+                        lineNumbers: true,
+                        styleActiveLine: true,
+                        matchBrackets: true,
+                        extraKeys: {"Ctrl-Space": function(cm) {CodeMirror.simpleHint(cm, CodeMirror.javascriptHint);}}
+                    });
+					//将代码显示在CodeMirror编辑器中
+					editor.setSize('710px','350px');
+                    editor.setValue(reader.result);
+                    $(".CodeMirror-scroll").hover(function(){
+                        $(this).get(0).style.cursor = "text";
+                    });
+                    show.textContent = reader.result
+                    showfilename.textContent = reader.fileName
+                    showfilenumber.textContent = 1
+
+                    // dataTable 行数获取
+                    var info = $('#example').DataTable().page.info();
+                    var dataRows = info.recordsTotal+1;
+                    /*dataTable表格增加行数据*/
+                    $('#example').dataTable().fnAddData([
+                    dataRows, //序号
+                    $("#filename").val(), //文件名
+                    (reader.fileSize/1024).toFixed(2) + " KB", //文件大小
+                    year + "." + mouth + "." + day + " " + hour + ":" + minute + ":" + second, //上传时间
+                    ]);
+                }
+            }
+            reader.onerror = (e) => {
+                console.log(e)
+            }
+        }
+    }
+
+
+})(jQuery);
+
+</script>
+
+
+</body>
+
+</html>
