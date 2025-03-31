@@ -1,9 +1,24 @@
+# coding=UTF-8
 import os
 import gdb
 import re
 from os import path
 from xml.dom.minidom import parse
 import xml.dom.minidom
+
+
+def disassemble_good(basepath, vulner_line_dic):
+    gdb.execute("set logging on ./assemble/good_function_assembly.txt")  # 将输出存入文件
+    gdb.execute("set pagination off")  # 取消输出分页显示
+    disassemble_binary(basepath, vulner_line_dic)
+    gdb.execute("set logging off")
+
+
+def disassemble_bad(basepath, vulner_line_dic):
+    gdb.execute("set logging on ./assemble/bad_function_assembly.txt")
+    gdb.execute("set pagination off")  # 取消输出分页显示
+    disassemble_binary(basepath, vulner_line_dic)
+    gdb.execute('q')
 
 
 def disassemble_binary(basepath, vulner_line_dic):
@@ -13,7 +28,7 @@ def disassemble_binary(basepath, vulner_line_dic):
             filepath = path.join(basepath, file)
             if path.isfile(filepath):  # 判断路径是否为文件
                 gdb.execute('file ' + filepath)
-                if path.isfile(filepath) and not filepath.endswith('.md'):
+                if path.isfile(filepath):
                     functions = gdb.execute('info functions', to_string=True)  # 列出可执行文件中的所有函数名称
                     function_list = functions.split('\n')  # 存放所有函数名称的列表
                     debug_function_list = []  # 存放可调式函数名称的列表, 0:源文件路径 1:函数1 2:函数2 3:函数3...
@@ -24,11 +39,12 @@ def disassemble_binary(basepath, vulner_line_dic):
                     filename = ''
                     filename_path = ''
                     if debug_function_list:
-                        filename_path = debug_function_list[0]
-                        # debug_function_list[0] 可执行文件所属文件名
-                        filename = filename_path.split()[1].split('/')[-1].split('.')[0]
+                        filename_path = debug_function_list[0]  # debug_function_list[0] 可执行文件所属文件名
+                        # print(debug_function_list)
+                        # filename = filename_path.split()[1].split('/')[-1].split('.')[0]
+                        filename = os.path.basename(filename_path).split('.')[0]
                         vulner_line = vulner_line_dic[filename]  # 得到漏洞行号
-                        if basepath.startswith('./BinaryFile/bad'):
+                        if basepath == './BinaryFile/bad':
                             print(vulner_line)
                         print(filename_path)
                         print('----------------------------------')
@@ -55,15 +71,15 @@ def slice_sample2function(flows, filepath):
     for line in function_list[1: len(function_list) - 3]:
         line = line.split()
         address = line[0]
-        line[0] = address2line(address, filepath)   # 调用address2line
+        line[0] = address2line(address, filepath)  # 调用address2line
         line[1] = ':'
         print(line[0], line[1], ' '.join(str(x) for x in line[2: len(line)]))
     # print(flows.split('\n'))
 
 
-def address2line(address, filepath):        # 通过addr2line将地址转化为代码行, 参数1：地址, 参数2：可执行文件
+def address2line(address, filepath):  # 通过addr2line将地址转化为代码行, 参数1：地址, 参数2：可执行文件
     r = os.popen("addr2line " + address + " -e " + filepath + ' -f -C -s')
-    index = r.readlines()[1].strip().split(':')[1]      # 获取行数
+    index = r.readlines()[1].strip().split(':')[1]  # 获取行数
     if len(index.split()) > 1:
         index = index.split()[0]
     return index
@@ -94,19 +110,9 @@ def read_xml():
                         # print(line)
     return line_dic  # 返回存放文件名以及相应的漏洞行数(或无漏洞)的字典
 
-binary_path_good = './BinaryFile/good'
-gdb.execute("set logging file ./assemble/good_function_assembly.txt")  # 将输出存入文件
-# 开启日志记录
-gdb.execute("set logging enabled on")   
-gdb.execute("set pagination off")  # 取消输出分页显示
-line_dic = read_xml()
-disassemble_binary(binary_path_good, line_dic)
-gdb.execute("set logging off")  
 
-binary_path_bad = './BinaryFile/bad'
-gdb.execute("set logging file ./assemble/bad_function_assembly.txt")
-# 开启日志记录
-gdb.execute("set logging enabled on")  
-gdb.execute("set pagination off")  # 取消输出分页显示
 line_dic = read_xml()
-disassemble_binary(binary_path_bad, line_dic)
+# good
+disassemble_good('./BinaryFile/good', line_dic)
+# bad
+disassemble_bad('./BinaryFile/bad', line_dic)
