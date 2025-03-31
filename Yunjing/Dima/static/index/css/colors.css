@@ -1,0 +1,53 @@
+
+
+.main-heading2,
+.team .over a:hover,
+.contact-list a:hover,
+.social-network a:hover,
+.header-holder .tel:hover,
+.header-holder .tel .fa-phone,
+.isoto-holder .over a:hover,
+.navbar-default .navbar-nav > li > a:hover,
+.navbar-default .navbar-nav .signup a:hover,
+.navbar-default .navbar-nav > .anchor-active > a{
+	color: #ff5403;
+}
+
+.btn-info,
+.box-count .img:after,
+.progress-bar li .bar,
+#back-top.active:hover,
+.isoto-filter li a:hover,
+.price-plan:hover .price,
+.isoto-filter li.active a,
+.price-plan:hover .signup,
+.price-plan.active .price,
+.price-plan.active .signup,
+.navbar-default .navbar-toggle,
+.main-slider .slick-dots li:hover,
+.test-slider .slick-dots li:hover,
+.navbar-default .navbar-nav .signup a,
+.contact-form input[type="submit"]:hover,
+.test-slider .slick-dots li.slick-active,
+.main-slider .slick-dots li.slick-active,
+.btn-info.white:hover{
+	background: #ff5403;
+}
+
+.btn-info,
+.btn-info:hover,
+.price-plan:hover .signup,
+.price-plan.active .signup,
+.isoto-holder .over a:hover,
+.contact-form input[type="submit"]:hover,
+.btn-info.white:hover{
+	border-color: #ff5403;
+}
+
+#portfolio-holder .col:before{
+	background: rgba(221, 37, 88, 0.8);
+}
+
+.color{
+	color: #ff5403 !important;
+}

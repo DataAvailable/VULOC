@@ -1,0 +1,261 @@
+
+
+@media (max-width: 1300px) {
+
+	.navbar-default{ width: calc(100% - 366px); }
+}
+@media (max-width: 1199px) {
+	.mar-tlg2{margin-top: 80px !important;}
+	.pad-tlg2{padding-top: 80px !important;}
+	.mar-blg2{margin-bottom: 40px !important;}
+	.pad-blg2{padding-bottom: 40px !important;}
+
+	.mar-blg{margin-bottom: 50px !important;}
+	.pad-blg{padding-bottom: 30px !important;}
+
+	.navbar-default{ width: calc(100% - 346px); }
+	.navbar-default .navbar-nav > li{ margin: 0 0 0 14px; }
+	.navbar-default .navbar-nav .signup{ margin: 0 0 0 16px; }
+	.navbar-default .navbar-nav{
+		font-size: 14px;
+		line-height: 30px;
+	}
+	.navbar-default .navbar-nav .signup a{ padding: 10px 22px; }
+	.test-slider{ max-width: 455px; }
+	.client-slider{ padding: 0; }
+	.num-counter{ margin-bottom: 40px; }
+	.main-slider .txt{margin: 0 auto 60px;}
+	.main-slider.small h1,
+	.main-slider h1{
+		font-size: 50px;
+		line-height: 68px;
+	}
+	.video{ padding: 80px 0; }
+	.main-slider.small .txt{
+		font-size: 17px;
+		line-height: 24px;
+		margin: 0 auto 60px;
+	}
+	.main-slider .caption .slick-slider{padding-bottom: 60px;}
+	.client-slider img{width: 21%;}
+}
+@media (max-width: 1023px) {
+	#header{
+		overflow: visible;
+	}
+	#header:after{
+		content: "";
+		clear: both;
+		display: block;
+	}
+	#header .header-holder{
+		float: left;
+		width: 100%;
+	}
+	.navbar-default{ width: calc(100% - 666px); }
+	.navbar-toggle,
+	.navbar-collapse.collapse.in{ display: block !important; }
+	.navbar-collapse.collapse{ display: none !important; }
+	.navbar-header{
+		float: right;
+		margin: 7px 0 0;
+	}
+	.navbar-default .navbar-toggle{ color: #fff; }
+	.navbar-default .navbar-toggle:hover,
+	.navbar-default .navbar-toggle:focus{ background: #444; }
+	.header-holder .tel{ float: right; }
+	.navbar-default{ position: static; }
+	.navbar-default .navbar-collapse{
+		background: #fff;
+		padding: 20px;
+	}
+	.navbar-default .navbar-nav > li{
+		margin: 0;
+		float: none;
+		display: block;
+	}
+	.navbar-default .navbar-nav .signup{ margin: 0; }
+	.navbar-default .navbar-nav{ float: none; }
+	.main-slider .caption{
+		width: 100%;
+		padding: 0 40px;
+	}
+	.isoto-filter{ margin: 0 0 40px; }
+	.isoto-filter li{ padding: 0; }
+	.isoto-holder .over a{
+		font-size: 24px;
+		line-height: 45px;
+		width: 52px;
+		height: 52px;
+		margin: 0;
+	}
+	.num-counter .fa{ font-size: 107px; }
+	.num-counter .counter{ font-size: 42px; }
+	.test-slider{ max-width: 345px; }
+	.skills .fa{ font-size: 240px; margin: 120px 0 0 -10px;}
+	.contact-list .fa-map-o,
+	.contact-list .fa-volume-control-phone{ margin: -23px -69px 0 15px; }
+	.contact-list .fa-send{ margin: -39px -69px 0 15px; }
+	.main-heading .heading,
+	.video .text h2{
+		font-size: 35px;
+		line-height: 40px;
+	}
+	.main-heading,
+	.progress-bar,
+	.test-slider,
+	.icon-box{ font-size: 16px; }
+	.video{
+		font-size: 16px;
+		line-height: 23px;
+	}
+	.test-slider .name,
+	.team .box .name{
+		font-size: 18px;
+		margin: 0;
+	}
+	.icon-box h2{
+		font-size: 16px;
+		line-height: 27px;
+	}
+	.sub-form.style3{
+		padding: 50px 20px 60px;
+	}
+	.sub-form.style2{
+		width: 100%;
+	}
+	.sub-form.style2 input[type="text"]{
+		width: 34.8%;
+	}
+}
+@media (max-width: 767px) {
+	.mar-tlg2{margin-top: 40px !important;}
+	.pad-tlg2{padding-top: 40px !important;}
+	.mar-blg2{margin-bottom: 40px !important;}
+	.pad-blg2{padding-bottom: 40px !important;}
+
+	.mar-tlg{margin-top: 30px !important;}
+	.pad-tlg{padding-top: 30px !important;}
+	.mar-blg{margin-bottom: 30px !important;}
+	.pad-blg{padding-bottom: 10px !important;}
+
+	.mar-bmd{margin-bottom: 10px !important;}
+	.header-holder .tel{
+		overflow: hidden;
+		white-space: nowrap;
+		width: 20px;
+		margin: 12px 60px 0 0;
+	}
+	.header-holder .tel .fa-phone{
+		white-space: normal;
+		font-size: 27px;
+		line-height: 29px;
+		margin: 0;
+	}
+	#footer .f-heading{ margin: 0 0 30px; }
+	.social-network{ margin: 0 0 30px; }
+	.social-network li{
+		font-size: 18px;
+		margin: 0 10px 0 0;
+	}
+	.social-network a{
+		width: 35px;
+		height: 35px;
+		padding: 0;
+	}
+	.main-slider .caption{ padding: 0 20px; }
+	.main-slider.small h1,
+	.main-slider h1{
+		font-size: 40px;
+		line-height: 48px;
+	}
+	.main-slider .txt{ margin: 0 auto 70px; }
+	.main-slider .txt,
+	.main-heading,
+	.icon-box,
+	.test-slider,
+	.team .box,
+	.progress-bar,
+	.video,
+	#footer .copyright{
+		font-size: 14px;
+		line-height: 20px;
+	}
+	.main-heading .heading,
+	.video .text h2,
+	.price-plan .title,
+	#footer .f-heading{
+		font-size: 30px;
+		line-height: 35px;
+	}
+	.icon-box.right{ padding-right: 63px; }
+	.icon-box{ padding-left: 63px; }
+	.isoto-filter{
+		font-size: 15px;
+		line-height: 17px;
+		margin: 0 0 30px;
+	}
+	.isoto-filter li{ margin: 0 0 10px; }
+	.isoto-holder .coll{
+		float: none;
+		width: 100%;
+	}
+	.num-counter .fa{ font-size: 87px; }
+	.num-counter .counter{ font-size: 32px; }
+	.num-counter .txt{
+		font-size: 16px;
+		margin: 0 0 30px;
+	}
+	.test-slider{ max-width: 100%; }
+	.test-slider:before{
+		font-size: 65px;
+		line-height: 65px;
+		top: 0;
+	}
+	.test-slider:after{
+		font-size: 65px;
+		line-height: 65px;
+		right: 0;
+	}
+	.test-slider .name,
+	.team .box .name{ font-size: 17px; }
+	.isoto-filter li a{ padding: 10px 15px; }
+	.skills .fa{
+		font-size: 200px;
+		margin: 0 0 50px;
+	}
+	.progress-bar{ width: 100%; }
+	.video{ padding: 40px 0; }
+	.video .text .fa{
+		font-size: 120px;
+		line-height: 130px;
+	}
+	.price-plan li{
+		font-size: 17px;
+		line-height: 23px;
+	}
+	.client-slider img{
+		width: 49%;
+		padding: 0 15px;
+		margin: 0 0 20px;
+	}
+	.contact-form textarea{ margin: 0 0 30px; }
+	.contact-form input[type="submit"]{ margin: 0 auto 40px; }
+	.contact-list{
+		font-size: 16px;
+		line-height: 23px;
+	}
+	.contact-list li{ padding: 0 62px 0 0; }
+	.contact-list .fa-map-o,
+	.contact-list .fa-volume-control-phone,
+	.contact-list .fa-send{ margin: -16px -59px 0 15px; }
+	.client-slider{ padding: 20px 0 0; }
+	.num-counter{ margin-bottom: 0; }
+	.sub-form input[type="text"]{
+		width: 100%;
+		margin: 0 0 10px;
+	}
+	.sub-form .btn-default{width: 100%;}
+	.sub-form{padding: 15px;}
+	.btn-info{margin-bottom: 10px;}
+}
