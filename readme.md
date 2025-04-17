@@ -24,6 +24,7 @@ manifest.xml: Records the vulnerability type and sink line number corresponding 
 ```
 
 ## How to replicate
+Note that different system architectures (such as x86, ARM), versions of GCC, GDB, addr2line, or compilation optimization levels (e.g., -O1, -O2, -O3, etc.) can all lead to different experimental results. If you want to apply VULOC to a specific tool version or system, you need to retrain the model according to the established process.
 ### Requirements
 ```
 python = 3.8
