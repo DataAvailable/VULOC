@@ -1,6 +1,11 @@
 ## About VULOC
-VULOC is a vulnerability scanning tool for C/C++ source code. It uses a customized deep learning architecture, combined with high-level abstract features of vulnerability source code and low-level fine-grained features of assembly code, to detect vulnerable functions and accurately locate vulnerable lines. Specifically, VULOC first compiles C/C++ programs to obtain assembly code with addresses. Then, it uses Addr2line to generate a mapping between the assembly code and source code line numbers, slices the assembly code into code blocks, and encodes them into a neural network model. Finally, it builds a BLSTM-LOC model to learn vulnerability features and predict vulnerability locations. To the best of our knowledge, this is the first approach to leverage the mapping between assembly code and source code line numbers for vulnerability detection (note: programs that cannot be compiled are excluded from detection).
+VULOC is a vulnerability scanning tool for C/C++ source code. It uses a customized deep learning architecture, combined with high-level abstract features of vulnerability source code and low-level fine-grained features of assembly code, to detect vulnerable functions and accurately locate vulnerable lines. Specifically, VULOC first compiles C/C++ programs to obtain assembly code with addresses. Then, it uses Addr2line to generate a mapping between the assembly code and source code line numbers, slices the assembly code into code blocks, and encodes them into a neural network model. Finally, it builds a BLSTM-LOC model to learn vulnerability features and predict vulnerability locations. To the best of our knowledge, this is the first approach to leverage the mapping between assembly code and source code line numbers for vulnerability detection (note: programs that cannot be compiled are excluded from detection). 
 
+For more information of VULOC, please refer to [this paper](https://doi.org/10.1016/j.jss.2025.112459).
+
+![Framework](./figures/framework.png "Framework")
+
+## VULOC Performance
 | Method     | Precision  | F1         | Re         | VL         |
 | ---------- | ---------- | ---------- | ---------- | ---------- |
 | RATS       | 68.9%      | 69.9%      | 71.0%      | 7.5        |
